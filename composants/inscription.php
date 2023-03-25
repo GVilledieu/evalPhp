@@ -18,26 +18,23 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse d-flex" id="navbarNav" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Inscription</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">Profil</a>
             </li>
-            <li class="nav-item">
-              
-              <a href="" class="btn btn-outline-danger">DECONNEXION</a>
+            <li class="nav-item flex-row-reverse">
+              <a href="" class="btn btn-outline-success">Inscription</a>
+              <a href="navbar.php" class="btn btn-outline-success">CONNEXION</a>
             </li>
           </ul>
+            
         </div>
       </div>
     </nav>
-    
-    <!-- End Example Code -->
-  </body>
-</html>
