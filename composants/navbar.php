@@ -30,7 +30,7 @@
               <a class="nav-link" href="#">Profil</a>
             </li>
             <li class="nav-item">
-              <a href="" class="btn btn-outline-danger">DECONNEXION</a>
+              <a href="inscription.php" class="btn btn-outline-danger">DECONNEXION</a>
             </li>
           </ul>
             <form class="d-flex" role="search">
