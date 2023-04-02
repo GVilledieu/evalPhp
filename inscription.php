@@ -31,10 +31,11 @@
             </li>
             <li class="nav-item flex-row-reverse">
               <a href="" class="btn btn-outline-success">Inscription</a>
-              <a href="navbar.php" class="btn btn-outline-success">CONNEXION</a>
+              <a href="composants/navbar.php" class="btn btn-outline-success">CONNEXION</a>
             </li>
           </ul>
-            
         </div>
       </div>
     </nav>
+
+  <h1>INSCRIPTION</h1>

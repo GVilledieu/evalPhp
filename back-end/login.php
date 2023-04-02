@@ -3,7 +3,7 @@ session_start();
 require('../class/verification.php');
 require('../class/database.php');
 require('../class/email.php');
-require('../back-end/config.php');
+require('./back-end/config.php');
 
 $verif = new Verification();
 

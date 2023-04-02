@@ -79,13 +79,6 @@ class Database
     }
 
 
-    //SELECT * FROM ad
-//WHERE id_user IN
-//(
-//SELECT id_ad FROM favorite
-//WHERE id_user = id_user
-//);
-
     public function selectFavorites($pdo) {
 
         $sql = "SELECT * FROM ad WHERE id_user IN 
