@@ -15,7 +15,7 @@ $a =  '<!doctype html>
       <div class="collapse navbar-collapse" id="navbarNav">
             <div class="container-fluid">
                         <a class="navbar-brand" href="./index.php">
-                              <img src="./img/couette.jpg" alt="Bootstrap" height="81" width="81" class ="rounded-circle">
+                              <img src="./img/couette.jpg" alt="Bootstrap" height="81" width="81" class ="rounded-circle d-inline-block align-text-middle"><span>EAU TNT</span> </img>
                          </a>
             </div>
       </div>';
@@ -42,8 +42,8 @@ $connecte =  isset($_SESSION['email']) ?
 
 
 $button = isset($_SESSION['email']) ? '<a class="btn btn-outline-danger" href="./back-end/deconnexion.php">Deconnexion</a>' : '
-      <a class="btn btn-outline-success m-1" href="./inscription.php">Inscription</a>
-      <a class="btn btn-success m-1" href="./login.php">Connexion</a>
+      <a class="btn btn-outline-success m-1" href="http://localhost/evalPhp/inscription.php">Inscription</a>
+      <a class="btn btn-success m-1" href="http://localhost/evalPhp/login.php">Connexion</a>
     ';
 
 $b = '    </ul>
