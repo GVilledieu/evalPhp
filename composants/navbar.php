@@ -15,7 +15,10 @@
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="Inscription.php"></a>
+        <a class="nav-link active" aria-current="page" href="index.php">
         <img src="img/couette.jpg" alt="Bootstrap" width="80" height="80" class ="rounded-circle">
+        </a>
+        
         
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
