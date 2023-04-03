@@ -1,4 +1,6 @@
-<!doctype html>
+<?php
+session_start();
+$a =  '<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,30 +11,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example">
+  <nav class="navbar navbar-expand-lg bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="container-fluid">
+                        <a class="navbar-brand" href="./index.php">
+                              <img src="./img/couette.jpg" alt="Bootstrap" height="81" width="81" class ="rounded-circle">
+                         </a>
+            </div>
+      </div>';
 
-    <!-- Example Code -->
-    
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="Inscription.php"></a>
-        <img src="img/couette.jpg" alt="Bootstrap" width="80" height="80" class ="rounded-circle">
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+$connecte =  isset($_SESSION['email']) ?
+      '<ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="inscription.php">Inscription</a>
+              <a class="nav-link active" aria-current="page" href="./index.php">Accueil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Profil</a>
             </li>
             <li class="nav-item">
-              <a href="inscription.php" class="btn btn-outline-danger">DECONNEXION</a>
+              <a class="nav-link" href="">Mes annonces</a>
             </li>
-          </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="./rechercheAnnonce.php">Rechercher une annonce</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./rechercheAnnonce.php">Mes favoris</a>
+            </li>  
+            </ul>
+                ': '<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>';;
 
-        </div>
+
+$button = isset($_SESSION['email']) ? '<a class="btn btn-outline-danger" href="./back-end/deconnexion.php">Deconnexion</a>' : '
+      <a class="btn btn-outline-success m-1" href="./inscription.php">Inscription</a>
+      <a class="btn btn-success m-1" href="./login.php">Connexion</a>
+    ';
+
+$b = '    </ul>
+         </div>
       </div>
-    </nav>
+    </nav>';
+echo $a.$connecte.$button.$b
+
+?>
