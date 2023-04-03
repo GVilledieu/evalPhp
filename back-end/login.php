@@ -2,8 +2,7 @@
 session_start();
 require('../class/verification.php');
 require('../class/database.php');
-require('../class/email.php');
-require('../back-end/config.php');
+//require('./back-end/config.php');
 
 $verif = new Verification();
 
@@ -18,22 +17,20 @@ $result = $database->select($pdo, '*', 'user', ['email', $_POST['email']]);
 $result = $result->fetchAll();
 
 if (count($result) <= 0) {
-$verif->setArray(["Email/mot de passe invalide"]);
+$verif->setArray(["Email mot de passe invalide"]);
 
 }
 
 if (count($verif->getArray()) > 0) {
-return header('Location: http://localhost/coursPhp/login.php/'.$verif->getIndexError(0).'&email='.$_POST['email']);
+return header('Location: http://localhost/Evalphp/login.php/?error='.$verif->getIndexError(0).'&email='.$_POST['email']);
 }
-
-
 
 $verif->PasswordVerify($result[0]['password'], $_POST['password']);
 
-
 if (count($verif->getArray()) > 0) {
-return header('Location: http://localhost/coursPhp/login.php/'.$verif->getIndexError(0).'&email='.$_POST['email']);
+return header('Location: http://localhost/Evalphp/login.php/?error='.$verif->getIndexError(0).'&email='.$_POST['email']);
 }
 
+header('Location: http://localhost/EvalPhp/rechercheAnnonce.php');
 $_SESSION['email'] = $_POST['email'];
-Email::sendEmail($authUser, $authPassword, "immystiik@gmail.com", "ça marche", '../email/email.html');
+//Email::sendEmail($authUser, $authPassword, "immystiik@gmail.com", "ça marche", '../email/email.html');
