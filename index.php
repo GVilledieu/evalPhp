@@ -1,1 +1,4 @@
- <?php require("composants/navbar.php");
+ <?php
+ require("composants/navbar.php");
+ ?>
+ <h1> Page d'accueil </h1>
