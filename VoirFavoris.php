@@ -1,5 +1,5 @@
 <?php
-session_start();
+require('./composants/navbar.php');
 require('./class/database.php');
 
 $database = new Database();

@@ -28,3 +28,25 @@ $result = $result->fetchAll();
       </datalist>
       <button type="submit" class="btn btn-primary mb-3">Rechercher</button>
 
+<?php
+echo '<div class="container">
+            <div class="row">';
+foreach ($result as $key => $value) {
+
+    echo '<div class="col-sm-3 mb-3 mb-sm-0">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">' . $value['title'] . '</h5>
+                    <p class="card-text">' . $value['description'] . '</p>
+                    <p> '.$value['price'] . '</p>
+                    <p class="text"> '.$value['address'] . '</p>
+                    <a href="#" class="btn btn-secondary">Voir l&#x2019;annonce</a>
+                  </div>
+                </div>
+              </div>
+            ';
+
+
+}
+?>
+

@@ -13,8 +13,10 @@ $database = new Database();
 $pdo = $database->connectDb();
 // create select requete
 $result = $database->select($pdo, '*', 'user', ['email', $_POST['email']]);
+$id_user=$database->select($pdo, 'id_user', 'user', ['email', $_POST['email']]);
 // formalisation du résultat
 $result = $result->fetchAll();
+$id_user = $id_user->fetchAll();
 
 if (count($result) <= 0) {
 $verif->setArray(["Email mot de passe invalide"]);
@@ -33,4 +35,5 @@ return header('Location: http://localhost/Evalphp/login.php/?error='.$verif->get
 
 header('Location: http://localhost/EvalPhp/rechercheAnnonce.php');
 $_SESSION['email'] = $_POST['email'];
+$_SESSION['id_user']= $id_user[0][0];
 //Email::sendEmail($authUser, $authPassword, "immystiik@gmail.com", "ça marche", '../email/email.html');

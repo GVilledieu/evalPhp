@@ -15,7 +15,7 @@ $a =  '<!doctype html>
       <div class="collapse navbar-collapse" id="navbarNav">
             <div class="container-fluid">
                         <a class="navbar-brand" href="./index.php">
-                              <img src="./img/couette.jpg" alt="Bootstrap" height="81" width="81" class ="rounded-circle d-inline-block align-text-middle"><span>EAU TNT</span> </img>
+                              <img src="./img/couette.jpg" alt="Bootstrap" height="81" width="81" class ="rounded-circle d-inline-block align-text-middle"><span>EAU BNB </span> </img>
                          </a>
             </div>
       </div>';
@@ -29,13 +29,13 @@ $connecte =  isset($_SESSION['email']) ?
               <a class="nav-link" href="">Profil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Mes annonces</a>
+              <a class="nav-link" href="./MesAnnonces.php">Mes annonces</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./rechercheAnnonce.php">Rechercher une annonce</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./rechercheAnnonce.php">Mes favoris</a>
+              <a class="nav-link" href="./VoirFavoris.php">Mes favoris</a>
             </li>  
             </ul>
                 ': '<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>';;
