@@ -1,46 +1,49 @@
 <?php
-require_once('./composants/navbar.php');
 require('./class/database.php');
-if (!$_SESSION['email']) {
-    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
-}
+require('./composants/navbar.php');
+require('composants/form.php');
+$form = new Form();
 $database = new Database();
 // connexion bdd
 $pdo = $database->connectDb();
 // create select requete
 $result = $database->select($pdo, '*', 'ad', []);
+$resultVille= $database->selectWithNomVille($pdo,['ville_nom',"PIRAJOUX"]);
 // formalisation du résultat
 $result = $result->fetchAll();
+$resultVille=$resultVille->fetchAll();
 
-//var_dump($result)
 ?>
 
 <!--      <h3>Connecter : --><?php //= $_SESSION['email']; ?><!-- </h3>-->
 <br/>
-<label for="exampleDataList" class="form-label"><h2>Rechercher une annonce par ville</h2></label>
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Exemple : Paris">
-      <datalist id="datalistOptions">
-            <option value="Paris">
-            <option value="Lyon">
-            <option value="Toulouse">
-            <option value="Montpellier">
-            <option value="Grenoble">
-      </datalist>
-      <button type="submit" class="btn btn-primary mb-3">Rechercher</button>
-
-<?php
-echo '<div class="container">
+      <label for="exampleDataList" class="form-label "><h2 class="text-white">Rechercher une annonce par ville</h2></label>
+      <form class="row"  action="back-end/rechercheAnnonce.php" method="post">
+            <?php
+            echo $form->Input("4", "rechercheVille", "", "text", "Saisir une ville, exemple : lParis ", $_GET['rechercheVille'] ?? '');
+            ?>
+            <div class="col-md-4">
+                  <div class="mb-3">
+            <label for="" class="form-label"></label>
+            <input value="Rechercher" type="submit" name="Envoyer" class="form-control bg-primary text-white" id="" placeholder="" style="height:38px; width:20em; padding-top:3px;border: none;" >
+                  </div>
+            </div>
+      </form>
+      <?php
+echo '
+<div style="margin-top:5%">
+<h2 class="text-white mt-10">Liste des annonces </h2>
+</div>
+<div class="container m-3">
             <div class="row">';
 foreach ($result as $key => $value) {
 
     echo '<div class="col-sm-3 mb-3 mb-sm-0">
-                <div class="card">
+                <div class="card bg-success h-100 ">
                   <div class="card-body">
                     <h5 class="card-title">' . $value['title'] . '</h5>
-                    <p class="card-text">' . $value['description'] . '</p>
-                    <p> '.$value['price'] . '</p>
-                    <p class="text"> '.$value['address'] . '</p>
-                    <a href="#" class="btn btn-secondary">Voir l&#x2019;annonce</a>
+                    <p class="card-text">' . $value['address'] . '</p>
+                    <a href="#" class="btn text-white" style=background-color:#2A2A2A;">Voir l&#x2019;annonce</a>
                   </div>
                 </div>
               </div>

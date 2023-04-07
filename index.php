@@ -1,4 +1,4 @@
  <?php
  require("composants/navbar.php");
  ?>
- <h1> Page d'accueil </h1>
+ <h1 class="text-white"> Page d'accueil </h1>

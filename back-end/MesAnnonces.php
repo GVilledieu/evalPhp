@@ -12,24 +12,21 @@ $pdo = $database->connectDb();
 $result = $database->selectLeftJoinWhereLike($pdo, '*', 'ad', 'user', ['id_user', $_SESSION['id_user']]);
 // formalisation du résultat
 $result = $result->fetchAll();
-
+echo '
+<h1 class="text-white p-3 mt-5 mb-5 text-center">Mes Annonces</h1>
+<div class="container m-3" >
+            <div class="row">';
 foreach ($result as $key => $value) {
-    echo '<div class="col-md-4 m-5">
-                        <div class="card">'
-        . '<h1 class="m-2">' . $value['title'] . '</h1>'
-        . '<h6 class="m-2">' . $value['description'] . '</h6>' .
-        '<p class="text-danger m-5">' .
-        $value['price'] . ' €
-                                </p>' .
-        '<p class="text-success m-5">' .
-        $value['address'] . '
-                                   </p>' .
-        '</div>
-                      </div>';
-
-    echo '</div>
-            </div>';
-}
+    echo '<div class="col-sm-3 mb-3 mb-sm-0">
+                <div class="card bg-success h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">' . $value['title'] . '</h5>
+                    <p class="card-text">' . $value['address'] . '</p>
+                    <a href="#" id="test" class="btn text-white" style="background-color:#2A2A2A;">Voir l&#x2019;annonce</a>
+                  </div>
+                </div>
+              </div>
+            ';}
 ?>
 
 

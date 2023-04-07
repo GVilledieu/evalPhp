@@ -83,15 +83,38 @@ class Database
     }
 
 
-    public function selectFavorites($pdo) {
+    public function selectFavorites($pdo, $where) {
 
-        $sql = "SELECT * FROM ad WHERE id_user IN 
-                       (SELECT id_ad FROM favorite WHERE id_user = id_user)";
-        $array = [];
-
+        $sql = "SELECT * FROM ad WHERE id_ad IN (SELECT id_ad FROM favorite";
+        $sql = $sql." WHERE ".$where[0]."= ?)";
+        $array = [$where[1]];
         $statement = $pdo->prepare($sql);
         // j'execute ma requete sql avec les valeurs
         $statement->execute($array);
+        return $statement;
+    }
+
+    //SELECT * FROM ad WHERE id_ville_france IN (SELECT ville_id FROM villes_france WHERE ville_nom = "PLAGNE")
+
+    public function selectWithNomVille($pdo, $where){
+        $sql = "SELECT * FROM ad WHERE id_ville_france IN (SELECT ville_id FROM villes_france";
+        $sql = $sql." WHERE ".$where[0]."= ?)";
+        $array = [$where[1]];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+        return $statement;
+
+    }
+
+    //SELECT * FROM ad WHERE id_ad IN (SELECT id_ad FROM favorite WHERE id_user = 1)
+
+    public function deleteFavoris($pdo, $where){
+        $sql = "DELETE FROM `favorite`";
+        $sql = $sql." WHERE ".$where[0]."= ? "."AND ".$where[2]." = ?";
+        $array = [$where[1],$where[3]];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+
         return $statement;
     }
 }
