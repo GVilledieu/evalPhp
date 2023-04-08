@@ -23,6 +23,10 @@ foreach ($result as $key => $value) {
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['address'] . '</p>
                     <a href="#" id="test" class="btn text-white" style="background-color:#2A2A2A;">Voir l&#x2019;annonce</a>
+                    <form action="./back-end/supprimerAnnonce.php" method="post">
+                        <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
+                            <input type="submit" class="btn btn-danger mt-3" value="Supprimer cette annonce">
+                        </form>
                   </div>
                 </div>
               </div>

@@ -117,5 +117,38 @@ class Database
 
         return $statement;
     }
+
+    //INSERT INTO favorite VALUES (2, 3);
+    //SELECT `id_user`, `id_ad` FROM `favorite` WHERE id_user=1 and id_ad=1
+    public function ajouterFavoris($pdo, $values){
+        $sql = "INSERT INTO `favorite`";
+        $sql = $sql." VALUES (?,?)";
+        $array = [$values[0],$values[1]];
+
+        $mysqli = new mysqli("localhost", "root", "", "evalPhp");
+        $id_user=$values[0];
+        $id_ad=$values[1];
+        $verify = mysqli_query($mysqli,"SELECT `id_user`, `id_ad` FROM `favorite` WHERE id_user=$id_user AND `id_ad` =$id_ad");
+        var_dump($verify);
+        $rownum = mysqli_num_rows($verify);
+        if ($rownum < 1) {
+            $statement = $pdo->prepare($sql);
+            $statement->execute($array);
+            return $statement;
+        }
+        return null;
+
+    }
+
+    public function deleteAnnonce($pdo, $where){
+        $sql = "DELETE FROM `ad`";
+        $sql = $sql." WHERE ".$where[0]."= ? "."AND ".$where[2]." = ?";
+        $array = [$where[1],$where[3]];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+
+        return $statement;
+    }
+
 }
 
