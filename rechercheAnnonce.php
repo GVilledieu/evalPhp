@@ -20,7 +20,7 @@ $resultVille=$resultVille->fetchAll();
       <label for="exampleDataList" class="form-label "><h2 class="text-white">Rechercher une annonce par ville</h2></label>
       <form class="row"  action="back-end/rechercheAnnonce.php" method="post">
             <?php
-            echo $form->Input("4", "rechercheVille", "", "text", "Saisir une ville, exemple : lParis ", $_GET['rechercheVille'] ?? '');
+            echo $form->Input("4", "rechercheVille", "", "text", "Saisir une ville, exemple : Paris ", $_GET['rechercheVille'] ?? '');
             ?>
             <div class="col-md-4">
                   <div class="mb-3">
@@ -43,7 +43,10 @@ echo '
                   <div class="card-body">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['address'] . '</p>
-                    <a href="#" class="btn text-white" style=background-color:#2A2A2A;">Voir l&#x2019;annonce</a>';
+                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                        <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
+                            <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
+                           </form>';
         $mysqli = new mysqli("localhost", "root", "", "evalPhp");
         $id_user=$_SESSION['id_user'];
         $id_ad=$value["id_ad"];

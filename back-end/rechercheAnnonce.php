@@ -24,7 +24,10 @@ echo ' <h1 class="text-white">Résultat de votre recherche pour '.$ville.'</h1>
                   <div class="card-body">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['address'] . '</p>
-                    <a href="#" class="btn text-white" style=background-color:#2A2A2A;">Voir l&#x2019;annonce</a>';
+                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                        <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
+                            <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
+                           </form>';
         $mysqli = new mysqli("localhost", "root", "", "evalPhp");
         $id_user=$_SESSION['id_user'];
         $id_ad=$value["id_ad"];

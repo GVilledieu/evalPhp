@@ -12,6 +12,10 @@ $a =  '<!doctype html>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anuphan">
     <title>Dormir Co</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>function redirect() {
+        window.location.replace("http://localhost/evalPhp/rechercheAnnonce.php");
+    }</script>
+</script>
   </head>
   <body class="p-3 m-0 border-0 bd-example" style="background-color:#2A2A2A;font-family:Anuphan;">
   <nav class="navbar navbar-expand-lg bg-success rounded">
