@@ -30,6 +30,10 @@ class Verification {
         return $this->Verif($name, 5, 255, 'Votre email est invalide');
     }
 
+    public function getEmail($email) {
+        return $this->Email = $email;
+    }
+
     public function Texte($name, $param) {
         return $this->Verif($name, 2, 255, 'Votre '.$param.' est invalide');
     }
