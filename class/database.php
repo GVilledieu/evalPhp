@@ -141,6 +141,7 @@ class Database
     }
 
     public function deleteAnnonce($pdo, $where){
+        $this->deleteFavoris($pdo, ['id_user', $where[1],'id_ad',$where[3]]);
         $sql = "DELETE FROM `ad`";
         $sql = $sql." WHERE ".$where[0]."= ? "."AND ".$where[2]." = ?";
         $array = [$where[1],$where[3]];

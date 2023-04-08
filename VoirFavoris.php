@@ -35,10 +35,14 @@ foreach ($result as $key => $value) {
 
     echo '<div class="col-sm-3 mb-3 mb-sm-0">
                 <div class="card bg-success h-100 ">
-                  <div class="card-body">
+                  <div class="card-body ">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['description'] . '</p>
-                        <form action="./back-end/supprimerFavoris.php" method="post">
+                        <form class="mb-3" action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                        <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
+                            <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
+                           </form>
+                        <form action="./back-end/supprimerFavoris.php" method="post"">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn btn-danger" value="Supprimer ce favoris">
                         </form>
