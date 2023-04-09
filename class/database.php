@@ -106,12 +106,10 @@ class Database
 
     }
 
-    //SELECT * FROM ad WHERE id_ad IN (SELECT id_ad FROM favorite WHERE id_user = 1)
-
     public function deleteFavoris($pdo, $where){
         $sql = "DELETE FROM `favorite`";
-        $sql = $sql." WHERE ".$where[0]."= ? "."AND ".$where[2]." = ?";
-        $array = [$where[1],$where[3]];
+        $sql = $sql." WHERE ".$where[0]."= ?";
+        $array = [$where[1]];
         $statement = $pdo->prepare($sql);
         $statement->execute($array);
 
@@ -129,7 +127,6 @@ class Database
         $id_user=$values[0];
         $id_ad=$values[1];
         $verify = mysqli_query($mysqli,"SELECT `id_user`, `id_ad` FROM `favorite` WHERE id_user=$id_user AND `id_ad` =$id_ad");
-        var_dump($verify);
         $rownum = mysqli_num_rows($verify);
         if ($rownum < 1) {
             $statement = $pdo->prepare($sql);
@@ -141,7 +138,7 @@ class Database
     }
 
     public function deleteAnnonce($pdo, $where){
-        $this->deleteFavoris($pdo, ['id_user', $where[1],'id_ad',$where[3]]);
+        $this->deleteFavoris($pdo, ['id_ad',$where[3]]);
         $sql = "DELETE FROM `ad`";
         $sql = $sql." WHERE ".$where[0]."= ? "."AND ".$where[2]." = ?";
         $array = [$where[1],$where[3]];

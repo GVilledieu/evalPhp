@@ -16,6 +16,10 @@ if ($titre==='' ||  $description==='' || $prix==='' || $phone==='' || $adresse==
 }
 $selectVille= $database->selectVilleId($pdo, ['ville_nom',strtoupper($_POST['ville'])]);
 $selectVille = $selectVille->fetchAll();
+if (empty($selectVille)) {
+    $error="La ville que vous avez renseigné n'existe pas";
+    return header('Location: http://localhost/evalPhp/ajouterAnnonce.php?error='. $error. '');
+}
 $selectVille=$selectVille[0][0];
 
 

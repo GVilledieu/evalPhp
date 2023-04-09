@@ -11,5 +11,12 @@ $result = $database->ajouterFavoris($pdo, [$_SESSION['id_user'],$_POST['id_ad']]
 
 $result = $result->fetchAll();
 $favoris = $favoris->fetchAll();
+$page=$_GET['page'];
 
-header('Location: http://localhost/Evalphp/rechercheAnnonce.php');
+if ($page== '1'){
+    return header('Location: http://localhost/evalPhp/rechercheAnnonce.php');
+}
+else if($page== '2'){
+    return header('Location: http://localhost/Evalphp/MesAnnonces.php');
+}
+

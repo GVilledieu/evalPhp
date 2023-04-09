@@ -20,7 +20,7 @@ $a =  '<!doctype html>
              window.location.replace("http://localhost/evalPhp/mesAnnonces.php");
         }
         else if(page===3) {
-             window.location.replace("http://localhost/evalPhp/mesFavoris.php");
+             window.location.replace("http://localhost/evalPhp/voirFavoris.php");
         }
         else if(page===4) {
              window.location.replace("http://localhost/evalPhp/profil.php");
@@ -67,7 +67,7 @@ $connecte =  isset($_SESSION['email']) ?
 
 
 $button = isset($_SESSION['email']) ? '<a class="btn btn-danger m-3" href="/evalPhp/back-end/deconnexion.php">Deconnexion</a>' : '
-      <a class="btn btn-outline-dark m" href="http://localhost/evalPhp/inscription.php">Inscription</a>
+      <a class="btn btn-outline-dark" href="http://localhost/evalPhp/inscription.php">Inscription</a>
       <a class="btn btn-dark m-3" href="http://localhost/evalPhp/login.php">Connexion</a>
     ';
 

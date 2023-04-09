@@ -45,7 +45,7 @@ foreach ($result as $key => $value) {
                   <div class="card-body ">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['description'] . '</p>
-                        <form class="mb-3" action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                        <form class="mb-3" action="http://localhost/evalPhp/composants/detailAnnonce.php?page=3" method="post">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
                            </form>

@@ -45,7 +45,7 @@ echo '
                   <div class="card-body">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['address'] . '</p>
-                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php?page=1" method="post">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
                            </form>';
@@ -56,7 +56,7 @@ echo '
         $rownum = mysqli_num_rows($verify);
         if ($rownum < 1) {
         echo '
-                        <form action="./back-end/ajouterFavoris.php" method="post">
+                        <form action="./back-end/ajouterFavoris.php?page=1" method="post">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn btn-warning mt-3" value="Ajouter aux favoris">
                            </form>';

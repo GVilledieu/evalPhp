@@ -8,6 +8,7 @@ $pdo = $database->connectDb();
 $annonce= $database->select($pdo, '*', 'ad', ['id_ad',$_POST['id_ad']]);
 // formalisation du résultat
 $annonce=$annonce->fetchAll();
+$page=$_GET['page'];
 echo '
 <h1 class="text-white p-3 mt-5 mb-5 text-center">Détail de l&#x2019;annonce </h1>
 <div class="container" >
@@ -23,6 +24,6 @@ foreach ($annonce as $key => $value) {
                   </div>
                 </div>
               </div>
-              <input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect(1)">
+              <input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect('. $page. ')">
             ';}
 ?>

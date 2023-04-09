@@ -11,7 +11,7 @@ $ville= strtolower($_POST['rechercheVille']);
 $ville=ucwords($ville);
 if (count($resultVille) < 1){
     echo('<h3 class="text-white m-5">Aucun résultat pour votre recherche</h3>
-<input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect()">
+<input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect(1)">
 ');
 
 }
@@ -26,7 +26,7 @@ echo ' <h1 class="text-white">Résultat de votre recherche pour '.$ville.'</h1>
                   <div class="card-body">
                     <h5 class="card-title">' . $value['title'] . '</h5>
                     <p class="card-text">' . $value['address'] . '</p>
-                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php" method="post">
+                    <form action="http://localhost/evalPhp/composants/detailAnnonce.php?page=1" method="post">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn text-white" value="Voir l&#x2019;annonce" style="background-color:#2A2A2A;">
                            </form>';
@@ -37,7 +37,7 @@ echo ' <h1 class="text-white">Résultat de votre recherche pour '.$ville.'</h1>
         $rownum = mysqli_num_rows($verify);
         if ($rownum < 1) {
             echo '
-                        <form action="http://localhost/evalPhp/back-end/ajouterFavoris.php" method="post">
+                        <form action="http://localhost/evalPhp/back-end/ajouterFavoris.php?page=1" method="post">
                         <input type="hidden" name="id_ad" value="' .$value["id_ad"] . ' ">
                             <input type="submit" class="btn btn-warning mt-3" value="Ajouter aux favoris">
                            </form>';
