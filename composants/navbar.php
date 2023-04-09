@@ -12,9 +12,24 @@ $a =  '<!doctype html>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anuphan">
     <title>Dormir Co</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>function redirect() {
-        window.location.replace("http://localhost/evalPhp/rechercheAnnonce.php");
-    }</script>
+    <script>function redirect(page) {
+        if(page===1) {
+             window.location.replace("http://localhost/evalPhp/rechercheAnnonce.php");
+        }
+        else if(page===2) {
+             window.location.replace("http://localhost/evalPhp/mesAnnonces.php");
+        }
+        else if(page===3) {
+             window.location.replace("http://localhost/evalPhp/mesFavoris.php");
+        }
+        else if(page===4) {
+             window.location.replace("http://localhost/evalPhp/profil.php");
+        }
+       else if(page===5) {
+             window.location.replace("http://localhost/evalPhp/ajouterAnnonce.php");
+        }
+    }
+    </script>
 </script>
   </head>
   <body class="p-3 m-0 border-0 bd-example" style="background-color:#2A2A2A;font-family:Anuphan;">
@@ -33,7 +48,7 @@ $connecte =  isset($_SESSION['email']) ?
               <a class="nav-link" aria-current="page" href="/evalPhp/index.php">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="">Profil</a>
+              <a class="nav-link " href="/evalPhp/profil.php">Profil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/evalPhp/MesAnnonces.php">Mes annonces</a>
@@ -41,6 +56,9 @@ $connecte =  isset($_SESSION['email']) ?
             <li class="nav-item">
               <a class="nav-link" href="/evalPhp/rechercheAnnonce.php">Rechercher une annonce</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/evalPhp/ajouterAnnonce.php">Ajouter une annonce</a>
+            </li>  
             <li class="nav-item">
               <a class="nav-link" href="/evalPhp/VoirFavoris.php">Mes favoris</a>
             </li>  

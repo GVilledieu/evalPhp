@@ -23,6 +23,6 @@ foreach ($annonce as $key => $value) {
                   </div>
                 </div>
               </div>
-              <input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect()">
+              <input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect(1)">
             ';}
 ?>

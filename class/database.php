@@ -150,6 +150,35 @@ class Database
 
         return $statement;
     }
+//UPDATE `user` SET `firstname`='Im',`lastname`='Mystiik',`email`='immystiik@gmail.com',`phone`='0607080910' WHERE id_user=2
+    public function modifProfil($pdo, $firstname, $lastname, $phone, $where) {
+        $sql = "UPDATE user SET firstname='$firstname', lastname='$lastname',phone='$phone'";
+        $sql = $sql." WHERE ".$where[0]."= ?";
+        $array = [$where[1]];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+        return $statement;
+    }
+    //INSERT INTO `ad`(`title`, `description`, `price`, `phone`, `address`,`id_user`, `id_ville_france`)
+    // VALUES ('Ajout Annonce SQL', 'Ceci est la description test de lajout dannonce', 20.00, 0607080910,'135 rue de Charenton 75000 Paris', 14, 3)
 
+    //SELECT ville_id FROM `villes_france` WHERE ville_nom="OZAN"
+    public function selectVilleId($pdo, $where){
+        $sql = "SELECT ville_id FROM villes_france ";
+        $sql = $sql." WHERE ".$where[0]."= ?";
+        $array = [$where[1]];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+        return $statement;
+    }
+    public function ajouterAnnonce($pdo, $values){
+            $sql = "INSERT INTO `ad` (`title`, `description`, `price`, `phone`, `address`,`id_user`, `id_ville_france`) ";
+            $sql = $sql." VALUES (?,?,?,?,?,?,?)";
+            $array = [$values[0],$values[1],$values[2],$values[3],$values[4],$values[5],$values[6]];
+            $statement = $pdo->prepare($sql);
+            $statement->execute($array);
+
+            return $statement;
+    }
 }
 

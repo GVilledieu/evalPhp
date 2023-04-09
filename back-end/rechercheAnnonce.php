@@ -10,7 +10,9 @@ $resultVille=$resultVille->fetchAll();
 $ville= strtolower($_POST['rechercheVille']);
 $ville=ucwords($ville);
 if (count($resultVille) < 1){
-    echo('<h3 class="text-white m-5">Aucun résultat pour votre recherche</h3>');
+    echo('<h3 class="text-white m-5">Aucun résultat pour votre recherche</h3>
+<input class="btn btn-secondary" type="button" value="RETOUR" onClick="redirect()">
+');
 
 }
 else{
