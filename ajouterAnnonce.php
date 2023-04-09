@@ -1,6 +1,9 @@
 <?php
 require('class\database.php');
 require('composants/navbar.php');
+if (!$_SESSION['email']) {
+    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
+}
 $database = new Database();
 // connexion bddo
 $pdo = $database->connectDb();

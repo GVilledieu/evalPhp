@@ -13,6 +13,9 @@ $lastname = $lastname->fetchAll();
 $firstname = $firstname->fetchAll();
 $email = $email->fetchAll();
 $phone = $phone->fetchAll();
+if (!$_SESSION['email']) {
+    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
+}
 
 echo isset($_GET['error']) ? '<div data-bs-dismiss="3000" class="alert alert-danger alert-dismissible fade show" role="alert">
                       <strong>Votre profil n&#x2019;a pas pu être modifié : </strong> ' . $_GET['error'] . '

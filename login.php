@@ -20,6 +20,12 @@
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>' : ''; 
             ?>
+        <?php
+        echo isset($_GET['valider']) ? '<div data-bs-dismiss="3000" class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Votre compté à bien été crée, merci de vous connecter</strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>' : '';
+        ?>
             <form class="row" action="/evalPhp/back-end/login.php" method="post">
                 <?php 
                 echo $form->Input("4", "email", "Votre email", "email", "Entrer un email", '');

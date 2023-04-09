@@ -13,6 +13,9 @@ $pdo = $database->connectDb();
 $result = $database->selectFavorites($pdo, ['id_user', $_SESSION['id_user']]);
 // formalisation du résultat
 $result = $result->fetchAll();
+if (!$_SESSION['email']) {
+    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
+}
 ?>
 <html lang="en">
 <head>
@@ -29,8 +32,12 @@ $result = $result->fetchAll();
 </html>
 
 <?php
+if(empty($result)){
+    echo '<h3 class="text-white">Votre liste de favoris est vide</h3>';
+}
     echo '<div class="container mt-4 p-0" style="width:100%;">
             <div class="row">';
+
 foreach ($result as $key => $value) {
 
     echo '<div class="col-sm-3 mb-3 mb-sm-0">

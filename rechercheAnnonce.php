@@ -12,7 +12,9 @@ $resultVille= $database->selectWithNomVille($pdo,['ville_nom',"PIRAJOUX"]);
 // formalisation du résultat
 $result = $result->fetchAll();
 $resultVille=$resultVille->fetchAll();
-
+if (!$_SESSION['email']) {
+    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
+}
 ?>
 
 <!--      <h3>Connecter : --><?php //= $_SESSION['email']; ?><!-- </h3>-->

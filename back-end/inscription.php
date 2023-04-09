@@ -54,5 +54,5 @@ if (count($verif->getArray()) > 0) {
     return header('Location: http://localhost/evalPhp/?error='.$verif->getIndexError(0).'&nom='.$_POST['nom'].'&prenom='.$_POST['prenom'].'&email='.$_POST['email'].'&telephone='.$_POST['telephone']);
 }
 
-$_SESSION['email'] = $_POST['email'];
-header('Location: http://localhost/evalPhp/rechercheAnnonce.php');
+//$_SESSION['email'] = $_POST['email'];
+header('Location: http://localhost/evalPhp/login.php?valider=oui');

@@ -3,6 +3,9 @@ require('../composants/navbar.php');
 require('../class/database.php');
 require('../composants/form.php');
 require('../class/verification.php');
+if (!$_SESSION['email']) {
+    return header('Location: http://localhost/evalPhp/login.php?error=Merci de vous connecter');
+}
 // init object class database
 $database = new Database();
 // connexion bdd
